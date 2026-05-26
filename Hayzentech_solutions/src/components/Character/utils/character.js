@@ -1,0 +1,72 @@
+import * as THREE from "three";
+import { DRACOLoader, GLTFLoader } from "three-stdlib";
+import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll.js";
+import { decryptFile } from "./decrypt.js";
+
+const setCharacter = (renderer, scene, camera) => {
+  const loader = new GLTFLoader();
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath("./draco/");
+  loader.setDRACOLoader(dracoLoader);
+
+  const loadCharacter = () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const encryptedBlob = await decryptFile(
+          "./models/character.enc?v=2",
+          "MyCharacter12"
+        );
+        const blobUrl = URL.createObjectURL(new Blob([encryptedBlob]));
+
+        loader.load(
+          blobUrl,
+          async (gltf) => {
+            const character = gltf.scene;
+            await renderer.compileAsync(character, camera, scene);
+            character.traverse((child) => {
+              if (child.isMesh) {
+                const mesh = child;
+
+                // Change clothing colors to match site theme
+                if (mesh.material) {
+                  if (mesh.name === "BODY.SHIRT") { // The shirt mesh
+                    const newMat = mesh.material.clone();
+                    newMat.color = new THREE.Color("#8B4513");
+                    mesh.material = newMat;
+                  } else if (mesh.name === "Pant") {
+                    const newMat = mesh.material.clone();
+                    newMat.color = new THREE.Color("#000000");
+                    mesh.material = newMat;
+                  }
+                }
+
+                child.castShadow = true;
+                child.receiveShadow = true;
+                mesh.frustumCulled = true;
+              }
+            });
+            resolve(gltf);
+            setCharTimeline(character, camera);
+            setAllTimeline();
+            character.getObjectByName("footR").position.y = 3.36;
+            character.getObjectByName("footL").position.y = 3.36;
+
+            dracoLoader.dispose();
+          },
+          undefined,
+          (error) => {
+            console.error("Error loading GLTF model:", error);
+            reject(error);
+          }
+        );
+      } catch (err) {
+        reject(err);
+        console.error(err);
+      }
+    });
+  };
+
+  return { loadCharacter };
+};
+
+export default setCharacter;

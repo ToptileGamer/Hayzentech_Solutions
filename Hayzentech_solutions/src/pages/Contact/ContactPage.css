@@ -1,0 +1,310 @@
+.contact-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--backgroundColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: max(40px, var(--safe-area-top)) max(20px, var(--safe-area-right))
+    max(40px, var(--safe-area-bottom)) max(20px, var(--safe-area-left));
+  position: relative;
+  overflow-x: hidden;
+}
+
+.contact-back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #eae5ec;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: "Geist", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.contact-back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.contact-page-content {
+  max-width: 1100px;
+  width: 100%;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.contact-page-title {
+  font-size: 64px;
+  font-weight: 700;
+  color: #eae5ec;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.contact-page-subtitle {
+  font-size: 18px;
+  color: rgba(234, 229, 236, 0.6);
+  margin-top: 16px;
+  margin-bottom: 60px;
+}
+
+.contact-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.contact-option-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-option-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(94, 234, 212, 0.05),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.contact-option-card:hover {
+  border-color: rgba(94, 234, 212, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.contact-option-card:hover::before {
+  opacity: 1;
+}
+
+.contact-option-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.email-icon {
+  background: rgba(94, 234, 212, 0.1);
+  color: var(--accentColor);
+}
+
+.call-icon {
+  background: rgba(96, 165, 250, 0.1);
+  color: #60a5fa;
+}
+
+.order-icon {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+}
+
+.order-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.contact-option-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #eae5ec;
+  margin: 0 0 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-option-card p {
+  font-size: 15px;
+  color: rgba(234, 229, 236, 0.6);
+  line-height: 1.6;
+  margin: 0 0 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-option-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Geist", sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #eae5ec;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-option-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.contact-option-btn.primary {
+  background: var(--accentColor);
+  color: #0a0e17;
+  border-color: var(--accentColor);
+  font-weight: 600;
+}
+
+.contact-option-btn.primary:hover {
+  background: transparent;
+  color: var(--accentColor);
+}
+
+.contact-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+  width: 100%;
+  padding: 10px 32px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-family: "Geist", sans-serif;
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  color: rgba(234, 229, 236, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-copy-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #eae5ec;
+}
+
+.contact-page-footer {
+  text-align: center;
+  color: rgba(234, 229, 236, 0.4);
+  font-size: 15px;
+}
+
+.contact-page-link {
+  color: var(--accentColor);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-page-link:hover {
+  opacity: 0.8;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 900px) {
+  .contact-options-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-page-title {
+    font-size: clamp(28px, 6vw, 36px);
+  }
+  .contact-back-btn {
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 20px 16px;
+  }
+  .contact-page-title {
+    font-size: clamp(22px, 7vw, 28px);
+    letter-spacing: -1px;
+  }
+  .contact-page-content {
+    margin-top: 40px;
+  }
+  .contact-page-subtitle {
+    font-size: clamp(14px, 3.5vw, 16px);
+    margin-bottom: 40px;
+  }
+  .contact-option-card {
+    padding: clamp(24px, 5vw, 32px);
+  }
+  .contact-option-card h2 {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+  .contact-option-card p {
+    font-size: clamp(13px, 3vw, 14px);
+  }
+  .contact-option-icon {
+    width: clamp(48px, 12vw, 56px);
+    height: clamp(48px, 12vw, 56px);
+    font-size: clamp(22px, 5vw, 26px);
+  }
+  .contact-option-btn {
+    font-size: clamp(13px, 3.5vw, 14px);
+    padding: clamp(12px, 3vw, 14px) clamp(24px, 5vw, 28px);
+  }
+  .contact-back-btn {
+    top: 12px;
+    left: 12px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .contact-page-footer {
+    font-size: clamp(12px, 3vw, 14px);
+  }
+}
+
+/* Tablet portrait (768px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-page-title {
+    font-size: clamp(36px, 5vw, 48px);
+  }
+}

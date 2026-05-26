@@ -1,0 +1,556 @@
+.landing-section {
+  width: 100%;
+  max-width: var(--cMaxWidth);
+  margin: auto;
+  position: relative;
+  height: var(--vh);
+  min-height: 600px;
+}
+
+.landing-container {
+  width: var(--cWidth);
+  margin: auto;
+  height: 100%;
+  position: relative;
+  max-width: var(--cMaxWidth);
+}
+
+.landing-circle1 {
+  top: 0%;
+  left: 0%;
+  z-index: 15;
+  position: fixed;
+  width: min(300px, 60vw);
+  height: min(300px, 60vw);
+  background-color: #22d3ee;
+  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
+  filter: blur(min(60px, 12vw));
+  border-radius: 50%;
+  animation: loadingCircle 5s linear infinite;
+}
+
+.nav-fade {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 130px;
+  background-image: linear-gradient(0deg,
+      transparent,
+      var(--backgroundColor) 70%);
+  pointer-events: none;
+  z-index: 12;
+  opacity: 0;
+  left: 0;
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform: translate(-95%, -75%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-95%, -75%) rotateZ(360deg);
+  }
+}
+
+.landing-circle2 {
+  top: 50%;
+  right: 0%;
+  transform: translate(calc(100% - 2px), -50%);
+  z-index: 9;
+  position: fixed;
+  display: none;
+  width: min(300px, 60vw);
+  height: min(300px, 60vw);
+  background-color: #22d3ee;
+  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
+  filter: blur(min(50px, 10vw));
+  border-radius: 50%;
+  animation: loadingCircle2 5s linear infinite;
+}
+
+@keyframes loadingCircle2 {
+  100% {
+    transform: translate(calc(100% - 2px), -50%) rotate(360deg);
+  }
+}
+
+.landing-video,
+.landing-image {
+  position: absolute;
+  bottom: 0;
+  height: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.landing-image img {
+  height: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+.character-rim {
+  position: absolute;
+  width: min(400px, 80vw);
+  height: min(400px, 80vw);
+  z-index: 1;
+  background-color: #22d3ee;
+  box-shadow: inset 66px 35px 85px 0px rgba(0, 180, 180, 0.65);
+  filter: blur(min(50px, 10vw));
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%) scale(1.4);
+  opacity: 0;
+}
+
+.character-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.character-model {
+  height: 80dvh;
+  position: absolute;
+  max-width: 1920px;
+  max-height: 1080px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 0;
+  bottom: 50px;
+  pointer-events: inherit;
+}
+
+.character-model::after {
+  content: "";
+  width: 100vw;
+  height: 250px;
+  background-image: linear-gradient(to bottom,
+      transparent,
+      var(--backgroundColor) 70%);
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
+}
+
+.character-model::before {
+  content: "";
+  width: 100vw;
+  height: 700px;
+  background-color: var(--backgroundColor);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
+}
+
+.character-loaded .character-rim {
+  animation: backlight 3s forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.character-model canvas {
+  position: relative;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.character-hover {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* ===========================
+   LANDING TEXT
+   =========================== */
+.landing-intro {
+  position: absolute;
+  z-index: 9;
+  top: clamp(10%, 12vh, 15%);
+  left: 0;
+}
+
+.landing-intro h2 {
+  margin: 0;
+  color: var(--accentColor);
+  font-size: clamp(14px, 2.5vw, 35px);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.landing-intro h1 {
+  margin: 0;
+  letter-spacing: 2px;
+  font-size: clamp(20px, 3.5vw, 60px);
+  line-height: clamp(22px, 3.3vw, 55px);
+  font-weight: 500;
+  font-family: "Geist", sans-serif;
+}
+
+.landing-info {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  bottom: clamp(30px, 6vh, 60px);
+  top: inherit;
+  z-index: 9;
+  text-align: center;
+}
+
+.landing-info h3 {
+  font-size: clamp(14px, 2.5vw, 35px);
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: var(--accentColor);
+  margin: 0;
+}
+
+.landing-info h2 {
+  margin: 0;
+  margin-top: -15px;
+  margin-left: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: clamp(22px, 4.5vw, 65px);
+  line-height: clamp(26px, 4.5vw, 62px);
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  justify-content: center;
+}
+
+.landing-h2-info-1 {
+  position: absolute;
+  top: 0;
+}
+
+h2.landing-info-h2 {
+  color: #14b8a6;
+  font-size: clamp(28px, 5vw, 75px);
+  width: auto;
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  position: relative;
+  margin-left: 0;
+  justify-content: center;
+}
+
+.landing-h2-2 {
+  position: absolute;
+  top: 0;
+}
+
+/* Gradient mask for first h2 (swapping "Developer" / "Game Developer") */
+.landing-info-h2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  z-index: 3;
+  background-image: linear-gradient(0deg,
+      var(--backgroundColor) 40%,
+      rgba(0, 0, 0, 0) 110%);
+  top: 0;
+  left: 0;
+}
+
+/* Gradient mask for second h2 (swapping "Game Developer" / "Developer") */
+.landing-info > h2:not(.landing-info-h2)::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  z-index: 3;
+  background-image: linear-gradient(0deg,
+      var(--backgroundColor) 40%,
+      rgba(0, 0, 0, 0) 110%);
+  top: 0;
+  left: 0;
+}
+
+/* ===========================
+   RESPONSIVE - Mobile First
+   =========================== */
+
+/* Touch / tablet: keep hero text above 3D canvas */
+@media screen and (max-width: 1024px) {
+  .landing-intro,
+  .landing-info {
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .landing-intro h1,
+  .landing-intro h2,
+  .landing-info h2,
+  .landing-info h3,
+  h2.landing-info-h2 {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .character-model {
+    z-index: 5;
+  }
+
+  .character-container {
+    z-index: 5;
+  }
+}
+
+/* Small mobile (< 480px) */
+@media screen and (max-width: 479px) {
+  .landing-section {
+    min-height: 100dvh;
+    height: auto;
+  }
+  .character-model {
+    height: 40dvh;
+    bottom: 120px;
+  }
+  .landing-intro {
+    top: 12%;
+  }
+  .landing-intro h1 {
+    font-size: clamp(20px, 5.5vw, 26px);
+    line-height: 1.2;
+  }
+  .landing-intro h2 {
+    font-size: clamp(11px, 3vw, 14px);
+    letter-spacing: 1.5px;
+  }
+  .landing-info {
+    bottom: clamp(60px, 10vh, 90px);
+  }
+  .landing-info h3 {
+    font-size: clamp(11px, 3vw, 14px);
+  }
+  .landing-info h2 {
+    font-size: clamp(18px, 5.5vw, 24px);
+    line-height: 1.2;
+    margin-top: -4px;
+  }
+  h2.landing-info-h2 {
+    font-size: clamp(20px, 6.5vw, 28px);
+  }
+}
+
+/* Mobile landscape */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .landing-section {
+    height: auto;
+    min-height: 100dvh;
+  }
+  .landing-intro {
+    top: 15%;
+  }
+  .landing-intro h1 {
+    font-size: clamp(16px, 3vw, 24px);
+    line-height: 1.2;
+  }
+  .character-model {
+    height: 70dvh;
+    bottom: 20px;
+  }
+  .landing-info {
+    bottom: 10px;
+  }
+  .landing-info h3 {
+    font-size: 12px;
+  }
+  .landing-info h2 {
+    font-size: clamp(18px, 4vw, 24px);
+    line-height: 1.2;
+  }
+}
+
+/* Tablet (480px - 767px) */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .landing-circle2 {
+    display: block;
+  }
+  .character-model {
+    height: 60dvh;
+    bottom: 70px;
+  }
+  .landing-section {
+    min-height: 100dvh;
+    height: auto;
+  }
+  .landing-intro h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    line-height: 1.2;
+  }
+  .landing-info {
+    bottom: clamp(40px, 6vh, 60px);
+  }
+  .landing-info h2 {
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.2;
+  }
+  h2.landing-info-h2 {
+    font-size: clamp(30px, 6vw, 44px);
+  }
+}
+
+/* Large Tablet (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .landing-circle2 {
+    display: block;
+  }
+  .character-model {
+    height: 75dvh;
+    bottom: 50px;
+  }
+  .landing-intro {
+    top: 12%;
+  }
+  .landing-intro h2 {
+    font-size: clamp(16px, 2.5vw, 20px);
+  }
+  .landing-intro h1 {
+    font-size: clamp(26px, 4vw, 38px);
+    line-height: 1.1;
+  }
+  .landing-info h3 {
+    font-size: clamp(16px, 2.5vw, 22px);
+  }
+  .landing-info h2 {
+    font-size: clamp(30px, 5vw, 42px);
+    line-height: 1.1;
+  }
+  h2.landing-info-h2 {
+    font-size: clamp(36px, 6vw, 50px);
+  }
+}
+
+/* Desktop (1025px+) */
+@media screen and (min-width: 1025px) {
+  .character-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+  }
+  .character-model {
+    height: 100vh;
+    height: 100dvh;
+    bottom: 0;
+    z-index: 11;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .character-model::after,
+  .character-model::before {
+    display: none;
+  }
+  .landing-section {
+    min-height: 100vh;
+    height: var(--vh);
+  }
+  .landing-intro {
+    top: 50%;
+    left: auto;
+    right: 76%;
+    transform: translate(0%, -50%);
+    max-width: 30%;
+  }
+  .landing-intro h2 {
+    font-size: clamp(18px, 2vw, 25px);
+  }
+  .landing-intro h1 {
+    font-size: clamp(28px, 3vw, 50px);
+    line-height: 1.1;
+  }
+  .landing-info {
+    bottom: auto;
+    top: 51%;
+    z-index: inherit;
+    text-align: left;
+    transform: translate(0%, -50%);
+    right: auto;
+    left: 76%;
+    width: auto;
+    max-width: 38%;
+  }
+  .landing-info h3 {
+    font-size: clamp(18px, 2vw, 28px);
+  }
+  .landing-info h2 {
+    font-size: clamp(32px, 4vw, 55px);
+    line-height: 1.1;
+    justify-content: flex-start;
+    margin-left: clamp(5px, 1.5vw, 15px);
+  }
+  h2.landing-info-h2 {
+    font-size: clamp(38px, 5vw, 65px);
+    justify-content: flex-start;
+    margin-left: -5px;
+  }
+}
+
+/* Large Desktop (1200px - 1599px) */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  .landing-intro {
+    right: 78%;
+  }
+  .landing-info {
+    left: 78%;
+  }
+  .landing-intro h1 {
+    font-size: clamp(32px, 3.5vw, 48px);
+  }
+  .landing-info h2 {
+    font-size: clamp(36px, 4.5vw, 60px);
+  }
+  h2.landing-info-h2 {
+    font-size: clamp(42px, 5.5vw, 70px);
+  }
+}
+
+/* Extra Large Desktop (1600px+) */
+@media screen and (min-width: 1600px) {
+  .landing-intro {
+    right: 80%;
+  }
+  .landing-info {
+    left: 80%;
+  }
+  .landing-intro h2 {
+    font-size: 35px;
+  }
+  .landing-intro h1 {
+    font-size: 60px;
+    line-height: 55px;
+  }
+  .landing-info h3 {
+    font-size: 35px;
+  }
+  .landing-info h2 {
+    font-size: 65px;
+    line-height: 62px;
+  }
+  h2.landing-info-h2 {
+    font-size: 75px;
+  }
+}
