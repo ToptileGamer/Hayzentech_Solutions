@@ -1,0 +1,27 @@
+.cursor-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--accentColor);
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+  transition: width 0.2s, height 0.2s, background 0.2s;
+}
+
+.cursor-disable { display: none; }
+
+.cursor-icons {
+  width: var(--cursorH);
+  height: var(--cursorH);
+  background: rgba(94, 234, 212, 0.1);
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 1024px) {
+  .cursor-main { display: none; }
+}

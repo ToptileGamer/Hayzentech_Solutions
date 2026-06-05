@@ -1,0 +1,120 @@
+.auth-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--backgroundColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(20px, var(--safe-area-top)) max(20px, var(--safe-area-right)) max(20px, var(--safe-area-bottom)) max(20px, var(--safe-area-left));
+  position: relative;
+}
+
+.auth-back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #eae5ec;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Geist", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.auth-back-btn:hover { border-color: var(--accentColor); color: var(--accentColor); }
+
+.auth-container {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 48px 40px;
+}
+
+.auth-header { text-align: center; margin-bottom: 36px; }
+.auth-header h1 { font-size: 32px; font-weight: 700; color: #eae5ec; margin: 0 0 8px; }
+.auth-header p { font-size: 15px; color: rgba(234,229,236,0.5); margin: 0; }
+
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+.auth-error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #ef4444; padding: 12px 16px; border-radius: 10px; font-size: 14px; text-align: center; }
+
+.auth-input-group { position: relative; display: flex; align-items: center; }
+.auth-input-icon { position: absolute; left: 16px; color: rgba(234,229,236,0.4); font-size: 20px; z-index: 1; }
+.auth-input-group input {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #eae5ec;
+  font-size: 15px;
+  font-family: "Geist", sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.auth-input-group input:focus { border-color: var(--accentColor); background: rgba(255,255,255,0.08); }
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--accentColor);
+  border: 1px solid var(--accentColor);
+  border-radius: 12px;
+  color: #0a0e17;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Geist", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.auth-submit-btn:hover:not(:disabled) { background: transparent; color: var(--accentColor); }
+.auth-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.auth-toggle { text-align: center; margin-top: 24px; }
+.auth-toggle p { color: rgba(234,229,236,0.5); font-size: 14px; }
+.auth-toggle-btn { background: none; border: none; color: var(--accentColor); font-size: 14px; font-family: "Geist", sans-serif; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+.auth-divider { display: flex; align-items: center; margin: 24px 0; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+.auth-divider span { padding: 0 16px; color: rgba(234,229,236,0.3); font-size: 13px; }
+
+.auth-google-btn {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  color: #eae5ec;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Geist", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.auth-google-btn:hover:not(:disabled) { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.25); }
+
+.auth-contact-link { text-align: center; margin-top: 20px; }
+.auth-contact-link p { color: rgba(234,229,236,0.4); font-size: 14px; }
+.auth-contact-link a { color: var(--accentColor); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 480px) {
+  .auth-container { padding: clamp(24px, 5vw, 32px) clamp(16px, 4vw, 24px); border-radius: 16px; }
+  .auth-header h1 { font-size: clamp(22px, 6vw, 26px); }
+  .auth-back-btn { top: 16px; left: 16px; padding: 8px 14px; font-size: 12px; }
+}

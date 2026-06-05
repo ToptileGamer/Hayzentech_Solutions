@@ -1,0 +1,102 @@
+.services-section {
+  width: 100%;
+  padding: clamp(60px, 10vh, 120px) 0;
+  position: relative;
+}
+
+.services-header {
+  margin-bottom: clamp(32px, 5vh, 60px);
+}
+
+.services-header h2,
+.process-header h2,
+.work-header h2 {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 600;
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.services-header h2 span,
+.process-header h2 span,
+.work-header h2 span {
+  color: var(--accentColor);
+}
+
+.services-subtitle,
+.process-subtitle,
+.work-subtitle {
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: rgba(234, 229, 236, 0.5);
+  font-weight: 300;
+  margin: 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.service-card {
+  padding: clamp(24px, 3vw, 36px);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.service-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  border-color: rgba(94, 234, 212, 0.2);
+  background: rgba(94, 234, 212, 0.03);
+  transform: translateY(-4px);
+}
+
+.service-icon {
+  font-size: clamp(28px, 3vw, 36px);
+  color: var(--accentColor);
+  margin-bottom: clamp(12px, 1.5vh, 20px);
+}
+
+.service-card h3 {
+  margin: 0 0 clamp(8px, 1vh, 12px);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  color: #eae5ec;
+}
+
+.service-card p {
+  margin: 0 0 clamp(12px, 1.5vh, 20px);
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: rgba(234, 229, 236, 0.55);
+  line-height: 1.6;
+}
+
+.service-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.service-tag {
+  font-size: clamp(11px, 1vw, 12px);
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(94, 234, 212, 0.06);
+  border: 1px solid rgba(94, 234, 212, 0.12);
+  border-radius: 100px;
+  color: rgba(94, 234, 212, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "appId": "com.hayzentech.solutions",
-  "appName": "HayzenTech Solutions",
-  "webDir": "dist",
-  "server": {
-    "androidScheme": "https"
-  }
-}
