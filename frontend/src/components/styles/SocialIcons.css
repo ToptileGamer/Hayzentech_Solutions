@@ -26,6 +26,15 @@
   height: clamp(40px, 4vw, 50px);
   position: relative;
   display: flex;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--borderColor);
+  transition: all 0.3s ease;
+}
+
+.social-icons span:hover {
+  border-color: rgba(94, 234, 212, 0.3);
+  background: rgba(94, 234, 212, 0.05);
 }
 
 .social-icons a {
@@ -38,7 +47,12 @@
   display: flex;
   font-size: clamp(20px, 2.2vw, 28px);
   will-change: left, top;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, color 0.3s ease;
+  color: var(--textSecondary);
+}
+
+.social-icons span:hover a {
+  color: var(--accentColor);
 }
 
 .resume-button {
@@ -56,7 +70,7 @@
   font-weight: 600;
   color: #5e5e5e;
   cursor: pointer;
-  transition: 0.5s;
+  transition: color 0.3s ease;
   transform-origin: left bottom;
   transform: translateX(100%) rotateZ(-90deg);
   pointer-events: auto;

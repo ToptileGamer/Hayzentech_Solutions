@@ -27,7 +27,7 @@
 .process-subtitle,
 .work-subtitle {
   font-size: clamp(14px, 1.5vw, 17px);
-  color: rgba(234, 229, 236, 0.5);
+  color: var(--textSecondary);
   font-weight: 300;
   margin: 0;
 }
@@ -40,43 +40,36 @@
 
 .service-card {
   padding: clamp(24px, 3vw, 36px);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--radius-lg);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.service-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .service-card:hover {
   border-color: rgba(94, 234, 212, 0.2);
   background: rgba(94, 234, 212, 0.03);
-  transform: translateY(-4px);
 }
 
 .service-icon {
   font-size: clamp(28px, 3vw, 36px);
   color: var(--accentColor);
   margin-bottom: clamp(12px, 1.5vh, 20px);
+  display: block;
 }
 
 .service-card h3 {
   margin: 0 0 clamp(8px, 1vh, 12px);
   font-size: clamp(18px, 2vw, 22px);
   font-weight: 600;
-  color: #eae5ec;
+  color: var(--textPrimary);
 }
 
 .service-card p {
   margin: 0 0 clamp(12px, 1.5vh, 20px);
   font-size: clamp(13px, 1.2vw, 15px);
-  color: rgba(234, 229, 236, 0.55);
-  line-height: 1.6;
+  color: var(--textSecondary);
+  line-height: 1.7;
 }
 
 .service-tools {
@@ -91,8 +84,14 @@
   padding: 4px 10px;
   background: rgba(94, 234, 212, 0.06);
   border: 1px solid rgba(94, 234, 212, 0.12);
-  border-radius: 100px;
+  border-radius: var(--radius-full);
   color: rgba(94, 234, 212, 0.7);
+  transition: all 0.2s ease;
+}
+
+.service-card:hover .service-tag {
+  background: rgba(94, 234, 212, 0.08);
+  border-color: rgba(94, 234, 212, 0.18);
 }
 
 @media screen and (max-width: 768px) {

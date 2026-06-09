@@ -21,7 +21,7 @@
 
 .contact-subtitle {
   font-size: clamp(14px, 1.5vw, 17px);
-  color: rgba(234, 229, 236, 0.5);
+  color: var(--textSecondary);
   font-weight: 300;
   margin: 0;
 }
@@ -37,9 +37,9 @@
   flex-direction: column;
   gap: clamp(20px, 2.5vh, 32px);
   padding: clamp(24px, 3vw, 32px);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--radius-lg);
 }
 
 .contact-info-item {
@@ -59,14 +59,14 @@
   margin: 0 0 4px;
   font-size: clamp(13px, 1.3vw, 15px);
   font-weight: 600;
-  color: #eae5ec;
+  color: var(--textPrimary);
 }
 
 .contact-info-item p,
 .contact-info-item a {
   margin: 0;
   font-size: clamp(13px, 1.2vw, 14px);
-  color: rgba(234, 229, 236, 0.55);
+  color: var(--textSecondary);
   line-height: 1.5;
   transition: color 0.2s;
 }
@@ -77,16 +77,16 @@
 
 .contact-services-card {
   padding: clamp(24px, 3vw, 32px);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--radius-lg);
 }
 
 .contact-services-card h4 {
   margin: 0 0 clamp(12px, 1.5vh, 20px);
   font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 600;
-  color: #eae5ec;
+  color: var(--textPrimary);
 }
 
 .contact-service-list {
@@ -100,7 +100,7 @@
 
 .contact-service-list li {
   font-size: clamp(13px, 1.2vw, 14px);
-  color: rgba(234, 229, 236, 0.55);
+  color: var(--textSecondary);
   padding-left: 16px;
   position: relative;
 }
@@ -117,20 +117,20 @@
   padding: clamp(24px, 3vw, 32px);
   background: rgba(94, 234, 212, 0.04);
   border: 1px solid rgba(94, 234, 212, 0.12);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
 }
 
 .contact-cta-card h4 {
   margin: 0 0 clamp(8px, 1vh, 12px);
   font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 600;
-  color: #eae5ec;
+  color: var(--textPrimary);
 }
 
 .contact-cta-card > p {
   margin: 0 0 clamp(16px, 2vh, 24px);
   font-size: clamp(13px, 1.2vw, 14px);
-  color: rgba(234, 229, 236, 0.5);
+  color: var(--textSecondary);
   line-height: 1.6;
 }
 
@@ -143,14 +143,15 @@
   color: #0a0e17;
   font-size: clamp(13px, 1.3vw, 14px);
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--accentColor);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(94, 234, 212, 0.25);
+  box-shadow: 0 8px 24px rgba(94, 234, 212, 0.25);
   color: #0a0e17;
 }
 
@@ -162,7 +163,7 @@
 
 .contact-social-links a {
   font-size: clamp(13px, 1.2vw, 14px);
-  color: rgba(234, 229, 236, 0.5);
+  color: var(--textSecondary);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -182,7 +183,7 @@
 
 .contact-footer p {
   font-size: clamp(13px, 1.2vw, 14px);
-  color: rgba(234, 229, 236, 0.4);
+  color: var(--textMuted);
   margin: 0 0 6px;
 }
 

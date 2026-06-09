@@ -1,36 +1,71 @@
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import "./styles/About.css";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const fadeUpDelayed = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, x: -20, scale: 0.97 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      delay: 0.25 + i * 0.12,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
 const About = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("about-visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".about-animate");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="about-section" id="about" ref={sectionRef}>
+    <motion.div
+      className="about-section"
+      id="about"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={containerVariants}
+    >
       <div className="about-container section-container">
-        <div className="about-header about-animate">
-          <h3 className="title">About Us</h3>
-          <div className="about-line" />
-        </div>
+        <motion.div className="about-header" variants={fadeUp}>
+          <h3>About Us</h3>
+          <motion.div
+            className="about-line"
+            initial={{ width: 0 }}
+            whileInView={{ width: 60 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          />
+        </motion.div>
         <div className="about-grid">
-          <div className="about-text about-animate">
+          <motion.div className="about-text" variants={fadeUpDelayed}>
             <p>
               HayzenTech Solutions is a full-stack development studio specializing in
               modern web applications, interactive 3D experiences, and game development.
@@ -43,27 +78,32 @@ const About = () => {
               immersive game, or a custom enterprise tool — we deliver excellence from
               concept to deployment.
             </p>
-          </div>
-          <div className="about-values about-animate">
-            <div className="about-value-card">
-              <div className="about-value-icon">⚡</div>
-              <h4>Performance First</h4>
-              <p>Every project is built with speed, scalability, and reliability at its core.</p>
-            </div>
-            <div className="about-value-card">
-              <div className="about-value-icon">🎨</div>
-              <h4>Design Driven</h4>
-              <p>Clean, intuitive interfaces that users love and businesses trust.</p>
-            </div>
-            <div className="about-value-card">
-              <div className="about-value-icon">🚀</div>
-              <h4>End to End</h4>
-              <p>From initial concept through development to deployment and support.</p>
-            </div>
-          </div>
+          </motion.div>
+          <motion.div className="about-values" variants={fadeUpDelayed}>
+            {[
+              { icon: "⚡", title: "Performance First", desc: "Every project is built with speed, scalability, and reliability at its core." },
+              { icon: "🎨", title: "Design Driven", desc: "Clean, intuitive interfaces that users love and businesses trust." },
+              { icon: "🚀", title: "End to End", desc: "From initial concept through development to deployment and support." },
+            ].map((item, i) => (
+              <motion.div
+                className="about-value-card"
+                key={item.title}
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(0, 0, 0, 0.25)" }}
+              >
+                <span className="about-value-icon">{item.icon}</span>
+                <h4>{item.title}</h4>
+                <p>{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

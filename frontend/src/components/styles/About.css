@@ -12,7 +12,7 @@
   font-size: clamp(14px, 1.5vw, 18px);
   text-transform: uppercase;
   letter-spacing: clamp(4px, 0.5vw, 7px);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--accentColor);
   margin: 0;
 }
@@ -23,6 +23,7 @@
   background: var(--accentColor);
   margin-top: 16px;
   opacity: 0.6;
+  border-radius: 1px;
 }
 
 .about-grid {
@@ -36,7 +37,7 @@
   font-size: clamp(16px, 1.8vw, 22px);
   font-weight: 400;
   line-height: clamp(24px, 2.2vw, 34px);
-  color: rgba(234, 229, 236, 0.75);
+  color: var(--textSecondary);
   margin: 0 0 clamp(16px, 2vh, 24px);
 }
 
@@ -48,46 +49,35 @@
 
 .about-value-card {
   padding: clamp(20px, 2.5vw, 28px);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--radius-md);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-value-card:hover {
-  border-color: rgba(94, 234, 212, 0.15);
+  border-color: rgba(94, 234, 212, 0.2);
   background: rgba(94, 234, 212, 0.03);
 }
 
 .about-value-icon {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .about-value-card h4 {
   margin: 0 0 6px;
   font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 600;
-  color: #eae5ec;
+  color: var(--textPrimary);
 }
 
 .about-value-card p {
   margin: 0;
   font-size: clamp(13px, 1.2vw, 14px);
-  color: rgba(234, 229, 236, 0.5);
-  line-height: 1.5;
-}
-
-/* Animate in */
-.about-animate {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-visible {
-  opacity: 1;
-  transform: translateY(0);
+  color: var(--textSecondary);
+  line-height: 1.6;
 }
 
 @media screen and (max-width: 768px) {

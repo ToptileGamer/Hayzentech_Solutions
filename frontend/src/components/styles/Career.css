@@ -16,15 +16,15 @@
 
 .process-card {
   padding: clamp(20px, 2.5vw, 32px);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--radius-lg);
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .process-card:hover {
-  border-color: rgba(94, 234, 212, 0.15);
+  border-color: rgba(94, 234, 212, 0.2);
   background: rgba(94, 234, 212, 0.03);
 }
 
@@ -34,24 +34,25 @@
   color: rgba(94, 234, 212, 0.1);
   line-height: 1;
   margin-bottom: clamp(12px, 1.5vh, 20px);
+  transition: color 0.3s ease;
+}
+
+.process-card:hover .process-step-number {
+  color: rgba(94, 234, 212, 0.2);
 }
 
 .process-card-content h3 {
   margin: 0 0 clamp(8px, 1vh, 12px);
   font-size: clamp(16px, 1.6vw, 19px);
   font-weight: 600;
-  color: #eae5ec;
+  color: var(--textPrimary);
 }
 
 .process-card-content p {
   margin: 0;
   font-size: clamp(13px, 1.2vw, 14px);
-  color: rgba(234, 229, 236, 0.5);
-  line-height: 1.6;
-}
-
-.process-connector {
-  display: none;
+  color: var(--textSecondary);
+  line-height: 1.7;
 }
 
 @media screen and (max-width: 1024px) {
