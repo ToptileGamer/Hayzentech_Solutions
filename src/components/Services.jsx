@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { SERVICES } from '../content.js'
 import { fadeUp, viewport, SectionHeading } from './ui.jsx'
+
+const MotionLink = motion.create(Link)
 
 function Arrow({ className = '' }) {
   return (
@@ -51,9 +54,9 @@ export default function Services() {
             </motion.article>
           ))}
 
-          <motion.a
+          <MotionLink
             className="service service--cta"
-            href="#contact"
+            to="/contact"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -65,7 +68,7 @@ export default function Services() {
               Let's talk
               <Arrow className="service__cta-arrow" />
             </span>
-          </motion.a>
+          </MotionLink>
         </div>
       </div>
     </section>

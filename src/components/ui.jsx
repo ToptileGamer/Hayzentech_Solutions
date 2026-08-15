@@ -15,6 +15,19 @@ export const fadeUp = {
   },
 }
 
+/** Sets the document title (and meta description) for the current page. */
+export function usePageMeta(title, description) {
+  useEffect(() => {
+    document.title = title
+      ? `${title} — HayzenTech Solutions`
+      : 'HayzenTech Solutions — Full-Stack Web & App Development'
+    if (description) {
+      const meta = document.querySelector('meta[name="description"]')
+      if (meta) meta.setAttribute('content', description)
+    }
+  }, [title, description])
+}
+
 export function SectionHeading({ index, label, title, lead, center = false }) {
   return (
     <motion.div

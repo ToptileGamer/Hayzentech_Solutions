@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { HERO } from '../content.js'
 import { EASE, Magnetic } from './ui.jsx'
@@ -41,18 +42,9 @@ export default function Hero() {
         >
           {WORDMARK.map((ch, i) => (
             <motion.span key={i} className="wordmark__letter" variants={letter} aria-hidden="true">
-              {ch}
+              {ch === ' ' ? '\u00A0' : ch}
             </motion.span>
           ))}
-          <motion.sup
-            className="wordmark__sup"
-            aria-hidden="true"
-            initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: EASE, delay: 0.3 + WORDMARK.length * 0.04 + 0.15 }}
-          >
-            *
-          </motion.sup>
         </motion.h1>
 
         <motion.div
@@ -71,7 +63,7 @@ export default function Hero() {
 
           <div className="hero__ctas">
             <Magnetic strength={0.3} className="hero__cta-wrap">
-              <a className="cta" href="#contact">
+              <Link className="cta" to="/contact">
                 <span className="cta__label">{HERO.ctaPrimary}</span>
                 <span className="cta__circle" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,11 +76,11 @@ export default function Hero() {
                     />
                   </svg>
                 </span>
-              </a>
+              </Link>
             </Magnetic>
-            <a className="cta cta--ghost" href="#services">
+            <Link className="cta cta--ghost" to="/projects">
               {HERO.ctaGhost} ↓
-            </a>
+            </Link>
           </div>
         </motion.div>
       </motion.div>

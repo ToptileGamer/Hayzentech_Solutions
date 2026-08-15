@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { CONTACT, NAV_LINKS } from '../content.js'
 import { EASE, Magnetic } from './ui.jsx'
@@ -32,25 +33,28 @@ export default function Nav() {
         transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
       >
         <div className="nav__inner">
-          <a className="nav__brand" href="#top">
+          <Link className="nav__brand" to="/">
             HayzenTech <span className="nav__brand-sup">Solutions</span>
-          </a>
+          </Link>
 
           <ul className="nav__links">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a className="nav__link" href={link.href}>
+              <li key={link.to}>
+                <NavLink
+                  className={({ isActive }) => `nav__link${isActive ? ' nav__link--active' : ''}`}
+                  to={link.to}
+                >
                   {link.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
 
           <div className="nav__actions">
             <Magnetic strength={0.25} className="nav__cta-wrap">
-              <a className="cta cta--sm" href="#contact">
+              <Link className="cta cta--sm" to="/contact">
                 <span className="cta__label">Start a project</span>
-              </a>
+              </Link>
             </Magnetic>
             <button
               className={`nav__toggle${open ? ' nav__toggle--open' : ''}`}
@@ -89,7 +93,7 @@ export default function Nav() {
             >
               {NAV_LINKS.map((link) => (
                 <motion.li
-                  key={link.href}
+                  key={link.to}
                   variants={{
                     hidden: { opacity: 0, y: 24, filter: 'blur(6px)' },
                     visible: {
@@ -100,9 +104,15 @@ export default function Nav() {
                     },
                   }}
                 >
-                  <a className="menu__link" href={link.href} onClick={() => setOpen(false)}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `menu__link${isActive ? ' menu__link--active' : ''}`
+                    }
+                    to={link.to}
+                    onClick={() => setOpen(false)}
+                  >
                     {link.label}
-                  </a>
+                  </NavLink>
                 </motion.li>
               ))}
             </motion.ul>

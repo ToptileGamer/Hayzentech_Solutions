@@ -5,25 +5,24 @@
 // ————————————————————————————————————————————————
 
 export const CONTACT = {
-  email: 'hello@hayzentech.solutions',
+  email: 'hayzentechsolutions@gmail.com',
   whatsappLabel: '+91 9945891320',
-  whatsappLink: 'https://wa.me/919945891320002',
-  linkedin: 'https://www.linkedin.com/company/hayzentech-solutions',
+  whatsappLink: 'https://wa.me/919945891320',
+  linkedin: 'https://www.linkedin.com/in/gautham-j-97581133b/',
   github: 'https://github.com/ToptileGamer',
-  instagram: 'https://www.instagram.com/hayzentech.solutions',
+  instagram: 'https://www.instagram.com/hayzentech_solutions/',
 }
 
 export const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
-  { label: 'Process', href: '#process' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Services', to: '/services' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Process', to: '/process' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export const HERO = {
   eyebrow: 'HayzenTech Solutions · Full-stack · Mobile · Cloud',
-  wordmark: 'HayzenTech',
+  wordmark: 'HayzenTech Solutions',
   sub: 'Full-stack web platforms and Flutter apps — engineered to scale, designed to feel effortless.',
   availability: 'Available for new projects',
   ctaPrimary: 'Start a project',
@@ -67,10 +66,43 @@ export const SERVICES = [
   },
 ]
 
+// ← Replace these with real projects. Add a link to open the project externally,
+// or leave link: '' to keep the card non-clickable.
+export const PROJECTS = [
+  {
+    title: 'Sumathi Crazy Collections',
+    category: 'E-commerce',
+    year: '2025',
+    tags: ['React', 'Razorpay', 'Supabase'],
+    link: 'https://sumathi-s-crazy-collections.vercel.app/',
+  },
+  {
+    title: 'Rise with Remya',
+    category: 'APIs & integrations',
+    year: '2023',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
+    link: 'https://remya-website-xi.vercel.app/',
+  },
+  {
+    title: 'Grounded Pulse',
+    category: 'Flutter · iOS & Android',
+    year: '2024',
+    tags: ['Flutter', 'Firebase'],
+    link: 'https://grounded-pulse.vercel.app/',
+  },
+  {
+    title: 'Freight ops dashboard',
+    category: 'SaaS platform',
+    year: '2025',
+    tags: ['React', 'Node.js', 'PostgreSQL'],
+    link: '',
+  },
+]
+
 export const STATS = [
-  { value: 6, suffix: '+', label: 'Years building' },
-  { value: 42, suffix: '', label: 'Projects shipped' },
-  { value: 26, suffix: '', label: 'Happy clients' },
+  { value: 3, suffix: '+', label: 'Years building' },
+  { value: 20, suffix: '+', label: 'Projects shipped' },
+  { value: 20, suffix: '+', label: 'Happy clients' },
   { value: 100, suffix: '%', label: 'On-time delivery' },
 ]
 
@@ -110,7 +142,7 @@ export const PROCESS = [
 
 export const TESTIMONIALS = [
   {
-    quote: 'HayzenTech rebuilt our platform end to end — faster than we hoped, better than we imagined.',
+    quote: 'HayzenTech Solutions rebuilt our platform end to end — faster than we hoped, better than we imagined.',
     author: 'Founder, B2B SaaS',
   },
   {

@@ -26,7 +26,7 @@ export default function Testimonials() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="container">
-        <SectionHeading index="04" label="Testimonials" title="What clients say." center />
+        <SectionHeading index="05" label="Testimonials" title="What clients say." center />
 
         <div className="testimonials__stage">
           <AnimatePresence mode="wait">

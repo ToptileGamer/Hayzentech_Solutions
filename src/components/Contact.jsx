@@ -13,9 +13,8 @@ function handleSubmit(e) {
   const name = form.get('name')
   const email = form.get('email')
   const message = form.get('message')
-  const subject = encodeURIComponent(`Project inquiry from ${name}`)
   const body = encodeURIComponent(`${message}\n\n— ${name}${email ? ` (${email})` : ''}`)
-  window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`
+  window.open(`${CONTACT.whatsappLink}?text=${body}`, '_blank', 'noopener')
 }
 
 export default function Contact() {
@@ -23,7 +22,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="container">
         <SectionHeading
-          index="05"
+          index="01"
           label="Contact"
           title="Let's build something."
           lead="Tell me what you're making — a product, a platform, an app. I'll reply within one business day."
@@ -92,7 +91,7 @@ export default function Contact() {
               </svg>
             </span>
           </button>
-          <p className="contact__note">Opens your email client — nothing is stored anywhere.</p>
+          <p className="contact__note">Opens WhatsApp with your message pre-filled — nothing is stored anywhere.</p>
         </form>
 
         <nav className="contact__channels" aria-label="Social">

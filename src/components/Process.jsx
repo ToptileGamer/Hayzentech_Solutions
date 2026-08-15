@@ -7,7 +7,7 @@ export default function Process() {
     <section className="process" id="process">
       <div className="container">
         <SectionHeading
-          index="03"
+          index="01"
           label="Process"
           title="How it works."
           lead="A process built for momentum — you always know what's happening and what's next."
