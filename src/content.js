@@ -85,14 +85,14 @@ export const PROJECTS = [
   },
   {
     title: 'Grounded Pulse',
-    category: 'Flutter · iOS & Android',
+    category: 'MERN Stack',
     year: '2024',
     tags: ['Flutter', 'Firebase'],
     link: 'https://grounded-pulse.vercel.app/',
   },
   {
-    title: 'Freight ops dashboard',
-    category: 'SaaS platform',
+    title: 'School LMS',
+    category: 'Flutter · iOS & Android',
     year: '2025',
     tags: ['React', 'Node.js', 'PostgreSQL'],
     link: '',
