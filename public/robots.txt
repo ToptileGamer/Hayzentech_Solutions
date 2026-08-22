@@ -1,0 +1,10 @@
+# HayzenTech Solutions — robots.txt
+# https://hayzentechsolutions.com
+
+User-agent: *
+Allow: /
+
+Sitemap: https://hayzentechsolutions.com/sitemap.xml
+
+# Disallow admin/utility paths
+Disallow: /api/

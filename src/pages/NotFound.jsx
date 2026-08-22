@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../components/ui.jsx'
 
 export default function NotFound() {
-  usePageMeta('Page not found')
+  usePageMeta('Page not found', 'The page you are looking for does not exist. Go back to HayzenTech Solutions homepage.', '/404')
 
   return (
     <section className="not-found">

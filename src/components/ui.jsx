@@ -15,17 +15,56 @@ export const fadeUp = {
   },
 }
 
-/** Sets the document title (and meta description) for the current page. */
-export function usePageMeta(title, description) {
+/** Sets the document title, meta description, canonical, and Open Graph tags for the current page. */
+const SITE_URL = 'https://hayzentechsolutions.com'
+
+export function usePageMeta(title, description, path = '') {
   useEffect(() => {
-    document.title = title
+    const fullTitle = title
       ? `${title} — HayzenTech Solutions`
       : 'HayzenTech Solutions — Full-Stack Web & App Development'
-    if (description) {
-      const meta = document.querySelector('meta[name="description"]')
-      if (meta) meta.setAttribute('content', description)
+    const fullDesc =
+      description ||
+      'HayzenTech Solutions builds full-stack web platforms, Flutter apps, e-commerce and APIs — engineered to scale, designed to feel effortless.'
+
+    document.title = fullTitle
+
+    // Meta description
+    const descMeta = document.querySelector('meta[name="description"]')
+    if (descMeta) descMeta.setAttribute('content', fullDesc)
+
+    // Open Graph
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) ogTitle.setAttribute('content', fullTitle)
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    if (ogDesc) ogDesc.setAttribute('content', fullDesc)
+    const ogUrl = document.querySelector('meta[property="og:url"]')
+    if (ogUrl) ogUrl.setAttribute('content', `${SITE_URL}${path}`)
+
+    // Twitter
+    const twTitle = document.querySelector('meta[name="twitter:title"]')
+    if (twTitle) twTitle.setAttribute('content', fullTitle)
+    const twDesc = document.querySelector('meta[name="twitter:description"]')
+    if (twDesc) twDesc.setAttribute('content', fullDesc)
+    const twUrl = document.querySelector('meta[name="twitter:url"]')
+    if (twUrl) twUrl.setAttribute('content', `${SITE_URL}${path}`)
+
+    // Canonical
+    let canonical = document.querySelector('link[rel="canonical"]')
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonical)
     }
-  }, [title, description])
+    canonical.setAttribute('href', `${SITE_URL}${path}`)
+
+    // Keywords
+    const keywordsMeta = document.querySelector('meta[name="keywords"]')
+    if (keywordsMeta && title) {
+      const base = 'HayzenTech Solutions, full-stack development, web apps, Flutter, React, Node.js, SaaS, e-commerce, APIs'
+      keywordsMeta.setAttribute('content', `${title}, ${base}`)
+    }
+  }, [title, description, path])
 }
 
 export function SectionHeading({ index, label, title, lead, center = false }) {

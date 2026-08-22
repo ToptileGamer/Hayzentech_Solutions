@@ -5,7 +5,11 @@ import { SectionHeading, Magnetic, usePageMeta } from '../components/ui.jsx'
 import { CONTACT } from '../content.js'
 
 export default function Home() {
-  usePageMeta()
+  usePageMeta(
+    '',
+    'HayzenTech Solutions builds full-stack web platforms, Flutter apps, e-commerce and APIs — engineered to scale, designed to feel effortless. Contact us for custom React, Node.js, Flutter and cloud development.',
+    '/',
+  )
 
   return (
     <>

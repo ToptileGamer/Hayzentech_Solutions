@@ -6,7 +6,8 @@ import { Counter, fadeUp, viewport, usePageMeta } from '../components/ui.jsx'
 export default function ProjectsPage() {
   usePageMeta(
     'Projects',
-    'Selected work — SaaS platforms, Flutter apps, e-commerce and API builds shipped by HayzenTech Solutions.',
+    'Selected work by HayzenTech Solutions — SaaS platforms, Flutter apps, e-commerce stores, MERN stack projects and API builds shipped to production.',
+    '/projects',
   )
 
   return (
