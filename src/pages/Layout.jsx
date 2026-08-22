@@ -71,7 +71,7 @@ export default function Layout() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
         tabIndex={-1}
       />
