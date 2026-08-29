@@ -9,6 +9,7 @@ const ProjectsPage = lazy(() => import('./pages/ProjectsPage.jsx'))
 const ProcessPage = lazy(() => import('./pages/ProcessPage.jsx'))
 const ContactPage = lazy(() => import('./pages/ContactPage.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage.jsx'))
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/process" element={<ProcessPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

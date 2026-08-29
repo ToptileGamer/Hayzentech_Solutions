@@ -8,7 +8,7 @@ export default function Footer() {
         <Link className="footer__brand" to="/">
           HayzenTech Solutions
         </Link>
-        <span className="footer__copy">© {year} HayzenTech Solutions · Full-stack web & app development</span>
+        <span className="footer__copy">© {year} HayzenTech Solutions · Full-stack web & app development · <Link to="/privacy" style={{ color: 'inherit' }}>Privacy</Link></span>
         <button
           className="footer__top"
           type="button"
