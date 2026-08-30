@@ -50,10 +50,10 @@ export const MARQUEE = [
   'Full-stack web apps',
   'Flutter apps',
   'SaaS platforms',
+  '24/7 AI receptionist',
   'E-commerce',
   'REST & GraphQL APIs',
   'Landing pages',
-  '24/7 AI receptionist',
 ]
 
 export const SERVICES = [
