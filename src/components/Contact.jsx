@@ -1,23 +1,46 @@
+import { useState } from 'react'
 import { CONTACT } from '../content.js'
 import { SectionHeading, Magnetic } from './ui.jsx'
 
-const CHANNELS = [
-  { label: 'LinkedIn', href: CONTACT.linkedin },
-  { label: 'GitHub', href: CONTACT.github },
-  { label: 'Instagram', href: CONTACT.instagram },
-]
-
-function handleSubmit(e) {
-  e.preventDefault()
-  const form = new FormData(e.currentTarget)
-  const name = form.get('name')
-  const email = form.get('email')
-  const message = form.get('message')
-  const body = encodeURIComponent(`${message}\n\n— ${name}${email ? ` (${email})` : ''}`)
-  window.open(`${CONTACT.whatsappLink}?text=${body}`, '_blank', 'noopener')
-}
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit'
 
 export default function Contact() {
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const ready = Boolean(CONTACT.web3formsKey)
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    if (!ready || status === 'sending') return
+
+    const form = e.currentTarget
+    const data = new FormData(form)
+    data.set('access_key', CONTACT.web3formsKey)
+    data.set('from_name', 'HayzenTech Solutions — Website')
+    data.set('subject', `New inquiry from ${data.get('name') || 'the website'}`)
+
+    setStatus('sending')
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      })
+      const json = await res.json()
+      if (json.success) {
+        setStatus('sent')
+        form.reset()
+      } else {
+        setStatus('error')
+        // eslint-disable-next-line no-console
+        console.error('Web3Forms error:', json)
+      }
+    } catch (err) {
+      setStatus('error')
+      // eslint-disable-next-line no-console
+      console.error('Web3Forms request failed:', err)
+    }
+  }
+
   return (
     <section className="contact" id="contact">
       <div className="container">
@@ -51,14 +74,18 @@ export default function Contact() {
               </span>
             </a>
           </Magnetic>
-          <Magnetic strength={0.3} className="contact__action-wrap">
-            <a className="cta cta--ghost" href={CONTACT.whatsappLink} target="_blank" rel="noreferrer">
-              WhatsApp · {CONTACT.whatsappLabel}
-            </a>
-          </Magnetic>
         </div>
 
         <form className="contact__form" onSubmit={handleSubmit}>
+          {/* Honeypot — hidden from real users, catches bots */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ display: 'none' }}
+          />
           <div className="contact__field">
             <label htmlFor="cf-name">Name</label>
             <input id="cf-name" name="name" type="text" placeholder="Ada Lovelace" required />
@@ -77,8 +104,10 @@ export default function Contact() {
               required
             />
           </div>
-          <button className="cta cta--submit" type="submit">
-            <span className="cta__label">Send inquiry</span>
+          <button className="cta cta--submit" type="submit" disabled={!ready || status === 'sending'}>
+            <span className="cta__label">
+              {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent' : 'Send inquiry'}
+            </span>
             <span className="cta__circle" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -91,22 +120,13 @@ export default function Contact() {
               </svg>
             </span>
           </button>
-          <p className="contact__note">Opens WhatsApp with your message pre-filled — nothing is stored anywhere.</p>
+          {status === 'sent' && (
+            <p className="contact__note" role="status">Thanks — your message is on its way. I'll reply within one business day.</p>
+          )}
+          {status === 'error' && (
+            <p className="contact__note" role="alert">Something went wrong. Please email {CONTACT.email} directly.</p>
+          )}
         </form>
-
-        <nav className="contact__channels" aria-label="Social">
-          {CHANNELS.map((channel) => (
-            <a
-              key={channel.label}
-              className="channel"
-              href={channel.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {channel.label}
-            </a>
-          ))}
-        </nav>
       </div>
     </section>
   )

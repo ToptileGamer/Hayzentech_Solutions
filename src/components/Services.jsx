@@ -33,7 +33,7 @@ export default function Services() {
           index="01"
           label="Services"
           title="What I build."
-          lead="Five ways I help teams ship — from first commit to production, and every fix in between."
+          lead="Six ways I help teams ship — from first commit to production, and every fix in between."
         />
 
         <div className="services__grid">

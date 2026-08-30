@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import Hero from '../components/Hero.jsx'
 import Marquee from '../components/Marquee.jsx'
 import { SectionHeading, Magnetic, usePageMeta } from '../components/ui.jsx'
-import { CONTACT } from '../content.js'
 
 export default function Home() {
   usePageMeta(
@@ -42,11 +41,6 @@ export default function Home() {
                   </svg>
                 </span>
               </Link>
-            </Magnetic>
-            <Magnetic strength={0.3} className="contact__action-wrap">
-              <a className="cta cta--ghost" href={CONTACT.whatsappLink} target="_blank" rel="noreferrer">
-                WhatsApp · {CONTACT.whatsappLabel}
-              </a>
             </Magnetic>
           </div>
         </div>

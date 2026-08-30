@@ -16,7 +16,7 @@ export const fadeUp = {
 }
 
 /** Sets the document title, meta description, canonical, and Open Graph tags for the current page. */
-const SITE_URL = 'https://hayzentechsolutions.com'
+const SITE_URL = 'https://hayzentechsolutions.in'
 
 export function usePageMeta(title, description, path = '') {
   useEffect(() => {

@@ -6,11 +6,9 @@
 
 export const CONTACT = {
   email: 'hayzentechsolutions@gmail.com',
-  whatsappLabel: '+91 9945891320',
-  whatsappLink: 'https://wa.me/919945891320',
-  linkedin: 'https://www.linkedin.com/in/gautham-j-97581133b/',
-  github: 'https://github.com/ToptileGamer',
-  instagram: 'https://www.instagram.com/hayzentech_solutions/',
+  // Web3Forms access key (form created for hayzentechsolutions.in/contact).
+  // Manage / rotate at https://web3forms.com. Empty = form disabled.
+  web3formsKey: '2c72dbc0-091a-480a-8dff-d2fff614d132',
 }
 
 export const NAV_LINKS = [
@@ -18,6 +16,25 @@ export const NAV_LINKS = [
   { label: 'Projects', to: '/projects' },
   { label: 'Process', to: '/process' },
   { label: 'Contact', to: '/contact' },
+  { label: 'Team', to: '/team' },
+]
+
+// Team cards — photo is pulled live from the GitHub avatar (`<user>.png`).
+// Just the picture plus GitHub / LinkedIn / WhatsApp links, no names.
+export const TEAM = [
+  {
+    photo: 'https://github.com/ToptileGamer.png',
+    github: 'https://github.com/ToptileGamer',
+    linkedin: 'https://www.linkedin.com/in/jgautham0106/',
+    whatsapp: 'https://wa.me/919945891320',
+  },
+  {
+    photo: 'https://github.com/Likhith022004.png',
+    github: 'https://github.com/Likhith022004',
+    linkedin: 'https://www.linkedin.com/in/likhith022004/',
+    whatsapp: 'https://wa.me/918861677667',
+    calendly: 'https://calendly.com/likith-blr12/30min',
+  },
 ]
 
 export const HERO = {
@@ -36,6 +53,7 @@ export const MARQUEE = [
   'E-commerce',
   'REST & GraphQL APIs',
   'Landing pages',
+  '24/7 AI receptionist',
 ]
 
 export const SERVICES = [
@@ -46,23 +64,28 @@ export const SERVICES = [
   },
   {
     num: '02',
-    title: 'E-commerce & CMS',
-    copy: 'Stores, content sites and admin panels that are fast to manage and even faster to sell on.',
+    title: '24/7 AI receptionist',
+    copy: 'Personalised AI receptionist that handles customer support, captures leads and books appointments — around the clock.',
   },
   {
     num: '03',
-    title: 'Mobile apps — Flutter',
-    copy: 'One codebase, native feel. iOS and Android shipped from a single, maintainable build.',
-  },
-  {
-    num: '04',
     title: 'APIs & integrations',
     copy: 'REST and GraphQL backends, webhooks and third-party wiring your product can rely on.',
   },
   {
-    num: '05',
+    num: '04',
     title: 'Landing pages & redesigns',
     copy: 'High-converting pages and full revamps — copy, motion and code that turn visits into sign-ups.',
+  },
+  {
+    num: '05',
+    title: 'Mobile apps — Flutter',
+    copy: 'One codebase, native feel. iOS and Android shipped from a single, maintainable build.',
+  },
+  {
+    num: '06',
+    title: 'E-commerce & CMS',
+    copy: 'Stores, content sites and admin panels that are fast to manage and even faster to sell on.',
   },
 ]
 

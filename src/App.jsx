@@ -8,6 +8,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage.jsx'))
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage.jsx'))
 const ProcessPage = lazy(() => import('./pages/ProcessPage.jsx'))
 const ContactPage = lazy(() => import('./pages/ContactPage.jsx'))
+const TeamPage = lazy(() => import('./pages/TeamPage.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage.jsx'))
 
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/process" element={<ProcessPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/team" element={<TeamPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
