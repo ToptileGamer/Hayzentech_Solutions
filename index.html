@@ -225,5 +225,27 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Aries — HayzenTech AI receptionist (Voiceflow web chat). Renders bottom-right.
+         Project: Aries — HayzenTech Solutions (6a9466c1defe2c9665082296).
+         Remove this whole block to disable the assistant. -->
+    <script type="text/javascript">
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: '6a9466c1defe2c9665082296' },
+            url: 'https://general-runtime.voiceflow.com',
+            voice: {
+              url: 'https://runtime-api.voiceflow.com',
+            },
+          });
+        };
+        v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
+        v.type = 'text/javascript';
+        s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
   </body>
 </html>
